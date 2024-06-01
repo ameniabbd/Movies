@@ -1,0 +1,34 @@
+diff --git a/node_modules/rn-country-picker/index.tsx b/node_modules/rn-country-picker/index.tsx
+index 0935f1a..67e3cee 100644
+--- a/node_modules/rn-country-picker/index.tsx
++++ b/node_modules/rn-country-picker/index.tsx
+@@ -16,6 +16,7 @@ import {
+ 	ImageStyle,
+ } from "react-native";
+ import CountryJSON from "./src/CountryPicker/countries.json";
++import { Size } from "../../src/utils/size";
+ 
+ const CountryPicker = (props: CountryPickerProps) => {
+ 	const [selectedCountry, setSelectedCountry] = useState<CountryJsonProps>();
+@@ -47,7 +48,9 @@ const CountryPicker = (props: CountryPickerProps) => {
+ 		setSelectedFlag(true);
+ 		setSelectedCountry(item);
+ 		setCountryJson(CountryJSON);
+-		props.selectedValue && props.selectedValue(item.callingCode);
++		let {callingCode,currency,name}:any=item;
++		name = name[props.language]
++		props.selectedValue && props.selectedValue({callingCode,currency,name});
+ 	};
+ 
+ 	const renderListItem = ({ item }: { item: CountryJsonProps }) => {
+@@ -338,8 +341,8 @@ const styles = StyleSheet.create({
+ 		textAlign: I18nManager.isRTL ? "right" : "left",
+ 	},
+ 	countryFlagStyle: {
+-		width: 35,
+-		height: 25,
++		width: Size(23),
++		height: Size(16),
+ 		borderRadius: 3,
+ 	},
+ 	dropDownImage: {
