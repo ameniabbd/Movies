@@ -1,17 +1,12 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SignInScreen from '../screens/signin.screen';
-import SignUpScreen from '../screens/signup.screen';
-import WelcomeScreen from '../screens/welcome.screen';
 import {useAppContext} from '../contexts/app.context';
 import ScreenContainer from '../components/utils/screenContainer';
-import BottomNavigation from './bottom.navigation';
 import Header from '../components/utils/header';
 import appColors from '../colors';
 import {Platform} from 'react-native';
 import HomeScreen from '../screens/home.screen';
-
 import SearchScreen from '../screens/search.screen';
 import MoreScreen from '../screens/moreMovie.screen';
 import { MovieDetailScreen } from '../screens/detailsMovie.screen';

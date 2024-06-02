@@ -97,7 +97,7 @@ const MoreScreen: React.FC = () => {
       >
         <Text style={styles.backButtonText}>{"<"}</Text>
       </TouchableOpacity>
-      <Text style={styles.header}>{strings.title}</Text>
+      <Text style={styles.header}>Movies</Text>
 
       </View>
     
@@ -117,7 +117,6 @@ const MoreScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: "#1E1E1E",
     paddingHorizontal: Size(16),
    
@@ -151,15 +150,14 @@ const styles = StyleSheet.create({
 
   movieInformation: { width: "90%", paddingVertical: Size(12) },
   ratingContainer: { flexDirection: "row", alignItems: "center" },
+
   header: {
     fontSize: 32,
     fontWeight: "bold",
-
     marginHorizontal: Size(24),
     color: "#FFFFFF",
   },
   backButton: {
- 
     
     left: 10,
     backgroundColor: "rgba(0,0,0,0.5)",

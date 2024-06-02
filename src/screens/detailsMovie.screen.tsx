@@ -72,7 +72,7 @@ export const MovieDetailScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#1E1E1E',
   },
   header: {
     position: 'relative',
