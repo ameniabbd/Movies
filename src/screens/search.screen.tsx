@@ -19,6 +19,7 @@ const SearchScreen: React.FC = () => {
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const navigation = useNavigation();
+  /** Handle Search Function */
 
   const handleSearch = async (text: string) => {
     setSearchQuery(text); // Met à jour le texte de recherche
@@ -36,11 +37,13 @@ const SearchScreen: React.FC = () => {
       setLoading(false);
     }
   };
+  /** Navigate to details movie */
 
   const handleMoviePress = (movie: Movie) => {
     navigation.navigate('Details', { movie: movie });
   };
 
+ /** Render Item movie */
   const renderMovieItem = ({ item }: { item: Movie }) => (
     <TouchableOpacity onPress={() => handleMoviePress(item)}>
       <View style={styles.movieContainer}>

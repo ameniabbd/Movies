@@ -66,7 +66,7 @@ const handleMoviePress = (movie: Movie) => {
 
 
   return (
-    <SafeAreaView>
+   
     <ScrollView style={styles.container}>
       <Text style={styles.header}>{strings.title}</Text>
       <View style={styles.searchBarContainer}>
@@ -88,6 +88,18 @@ const handleMoviePress = (movie: Movie) => {
         </View>
       ) : (
         <>
+        <View style={styles.sectionContainer}>
+            <Text style={styles.sectionHeader}>{strings.rated}</Text>
+            
+          </View>
+          <FlatList
+            data={topRatedMovies}
+            keyExtractor={(item) => item.imdbID}
+            renderItem={renderMovieItem}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.listContent}
+          />
           <View style={styles.sectionContainer}>
             <Text style={styles.sectionHeader}>{strings.popular}</Text>
             <TouchableOpacity onPress={handleMorePress}>
@@ -102,24 +114,11 @@ const handleMoviePress = (movie: Movie) => {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.listContent}
           />
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionHeader}>{strings.rated}</Text>
-            <TouchableOpacity >
-              <Text style={styles.moreButton}>{strings.more}</Text>
-            </TouchableOpacity>
-          </View>
-          <FlatList
-            data={topRatedMovies}
-            keyExtractor={(item) => item.imdbID}
-            renderItem={renderMovieItem}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.listContent}
-          />
+          
         </>
       )}
     </ScrollView>
-    </SafeAreaView>
+   
   );
 };
 
@@ -128,12 +127,15 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: '#1E1E1E',
     paddingHorizontal: Size(12),
+    paddingVertical:Size(32)
+    
   },
   header: {
     fontSize: 32,
     fontWeight: 'bold',
     marginVertical: Size(20),
-    color: '#FFFFFF',
+    color: 'white',
+  
   },
   searchBarContainer: {
     flexDirection: 'row',
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
     color: '#FFA500',
   },
   listContent: {
-    paddingBottom: 10,
+    paddingBottom: Size(10),
   },
   movieContainer: {
     marginRight: 10,

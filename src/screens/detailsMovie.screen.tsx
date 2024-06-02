@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import FastImage from 'react-native-fast-image';
 
 interface Movie {
   imdbID: string;
@@ -17,10 +18,12 @@ interface Movie {
 }
 
 export const MovieDetailScreen: React.FC = () => {
+  /** Hooks */
   const route = useRoute();
   const navigation = useNavigation();
 
   const [movie, setMovie] = useState<Movie | null>(null);
+  /** UseEffect Funtion  */
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -40,7 +43,7 @@ export const MovieDetailScreen: React.FC = () => {
       {movie && (
         <>
           <View style={styles.header}>
-            <Image source={{ uri: movie.Poster }} style={styles.backgroundImage} />
+            <FastImage source={{ uri: movie.Poster }} style={styles.backgroundImage} />
             <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
               <Text style={styles.backButtonText}>{"<"}</Text>
             </TouchableOpacity>
@@ -59,7 +62,7 @@ export const MovieDetailScreen: React.FC = () => {
               <Text style={styles.castName}>{movie.Actors}</Text>
             </View>
           </View>
-          {/* Vous pouvez ajouter d'autres sections ici si nécessaire */}
+        
         </>
       )}
     </ScrollView>
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'gold',
+    color: '#FFA500',
     paddingHorizontal: 20,
     marginBottom: 10,
   },

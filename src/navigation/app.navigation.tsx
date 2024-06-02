@@ -32,8 +32,8 @@ export default function AppNavigation() {
           <>
             <Stack.Screen name="home" component={ScreenContainer(HomeScreen)}  options={{headerShown: false}}/>
             <Stack.Screen name="Details" component={ScreenContainer(MovieDetailScreen)}  options={{headerShown: false}}/>
-            <Stack.Screen name="Search" component={ScreenContainer(SearchScreen)}  />
-            <Stack.Screen name="moreMovie" component={ScreenContainer(MoreScreen)}  />
+            <Stack.Screen name="Search" component={ScreenContainer(SearchScreen)} options={{headerShown: false}} />
+            <Stack.Screen name="moreMovie" component={ScreenContainer(MoreScreen)}  options={{headerShown: false}}/>
 
             
 
